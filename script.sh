@@ -16,6 +16,20 @@ printf "
 "
 
 printf "
+【openssl】:チェック中...
+"
+source ~/projects/env_error_tools/openssl_checker.sh
+
+if [[ $EXIT == "true" ]] ; then
+  EXIT=false
+  return 2>&- || exit
+fi
+
+printf "
+【openssl】:チェック完了
+"
+
+printf "
 【shell】:チェック中...
 "
 source ~/projects/env_error_tools/shell_checker.sh
