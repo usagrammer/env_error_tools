@@ -12,7 +12,7 @@ printf "
 "
 git pull
 printf "
-【設定ツール】:アップデート完了
+【設定ツール】:アップデート確認完了
 "
 
 printf "
@@ -41,6 +41,17 @@ printf "
 【mysql】:チェック中...
 "
 source ~/projects/env_error_tools/mysql_checker.sh
+if [[ $EXIT == "true" ]] ; then
+  EXIT=false
+  return 2>&- || exit
+fi
+printf "
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+あなたのmysqlは
+$MYSQL_VER
+です。
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"
 printf "
 【mysql】:チェック完了
 "
